@@ -1,0 +1,17 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+use Batmaid\Calendar\Ui\GetAvailableAgents;
+use Batmaid\Calendar\Ui\AddAvailability;
+use Batmaid\Calendar\Ui\RemoveAvailability;
+
+$application = new Application();
+
+$application->add(new GetAvailableAgents('get'));
+$application->add(new AddAvailability('add'));
+$application->add(new RemoveAvailability('remove'));
+
+$application->run();
